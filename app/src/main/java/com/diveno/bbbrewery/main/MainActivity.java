@@ -1,4 +1,4 @@
-package com.diveno.bbbrewery;
+package com.diveno.bbbrewery.main;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,12 +12,18 @@ import com.google.android.things.pio.PeripheralManagerService;
 
 public class MainActivity extends Activity {
 
+
+    private MainPresenter presenter;
+
+
     private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PeripheralManagerService service = new PeripheralManagerService();
+        presenter = new MainPresenter();
         Log.d(TAG, "Available GPIO: " + service.getGpioList());
+
     }
 }
